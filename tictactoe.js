@@ -1,7 +1,7 @@
-const tictactoe = (xName, oName) => {
+const ticTacToe = (xName, oName) => {
   const X = "X";
   const O = "O";
-  const currentPlayer = X;
+  let currentPlayer = X;
 
   const players = {
     X: xName,
@@ -14,10 +14,18 @@ const tictactoe = (xName, oName) => {
   };
 
   //visual representation of data structure
-  const board = ["ongoing", "", "", "", "", "", "", "", "", ""];
+  const board = [
+    "ongoing", 
+    // "_", "_", "_",
+    // "_", "_", "_",
+    // "_", "_", "_"
+    "", "", "",
+    "", "", "",
+    "", "", ""
+  ];
 
-  const isValidMove = () => {
-    return 1 <= move && move <= 9 && board[move] === "";
+  const isValidMove = (move) => {
+    return ((1 <= move && move <= 9 )&& (board[move] === ""));
   };
 
   const computStatus = () => {
@@ -83,7 +91,8 @@ const tictactoe = (xName, oName) => {
     // 1. update the board
     // 2. compute the game status
     // 3. next player turn
+    return [true, board];
   };
 };
 
-module.export = { tictactoe };
+module.exports = { ticTacToe };
