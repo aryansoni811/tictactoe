@@ -78,6 +78,15 @@ const ticTacToe = (xName, oName) => {
     // and return game status as "ongoing"
     if (allCellsFilled) return "draw";
 
+    //swanand sir's version
+    // let allCellsFilled = false;
+    // for (let i = 1; i <= 9; i++) {
+    //   if (board[i] !== "") {
+    //     allCellsFilled = true;
+    //   }
+    // }
+    // if (allCellsFilled) return "draw";
+
     return "ongoing";
   };
 

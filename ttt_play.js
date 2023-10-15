@@ -11,40 +11,22 @@ const printBoard = (board) => {
 
 
 let result, board, currentMove;
+const playerX = "X";
+const playerO = "O";
 
 [result, board] = play("X", 8);
 printBoard(board);
 
-[result, board] = play("O", 6);
-if (result) {
-  printBoard(board);
-} else console.log(board);
-[result, board] = play("X", 5);
-if (result) {
-  printBoard(board);
-} else console.log(board);
-[result, board] = play("O", 2);
-if (result) {
-  printBoard(board);
-} else console.log(board);
-[result, board] = play("X", 1);
-if (result) {
-  printBoard(board);
-} else console.log(board);
-[result, board] = play("O", 9);
-if (result) {
-  printBoard(board);
-} else console.log(board);
-[result, board] = play("X", 4);
-if (result) {
-  printBoard(board);
-} else console.log(board);
-[result, board] = play("O", 7);
-if (result) {
-  printBoard(board);
-} else console.log(board);
-[result, board] = play("X", 3);
-if (result) {
-  printBoard(board);
-} else console.log(board);
-  
+const readline = require('readline').createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+let i =1;
+while (board[0] === "ongoing"){
+    readline.question(`Enter Your Move ${i%2===0?playerX:playerO}`, currentMove => {
+      [result, board] = play("O", currentMove);
+      if (result) {
+        printBoard(board);
+      } else console.log(board);
+    });
+}
