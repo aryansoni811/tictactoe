@@ -15,17 +15,23 @@ const ticTacToe = (xName, oName) => {
 
   //visual representation of data structure
   const board = [
-    "ongoing", 
+    "ongoing",
     // "_", "_", "_",
     // "_", "_", "_",
     // "_", "_", "_"
-    "", "", "",
-    "", "", "",
-    "", "", ""
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
+    "",
   ];
 
   const isValidMove = (move) => {
-    return ((1 <= move && move <= 9 )&& (board[move] === ""));
+    return 1 <= move && move <= 9 && board[move] === "";
   };
 
   const computStatus = () => {
@@ -51,9 +57,10 @@ const ticTacToe = (xName, oName) => {
       let l = combo[i][0];
       let m = combo[i][1];
       let n = combo[i][2];
-      if (board[l] === "X" && board[l] === "X" && board[l] === "X") {
+
+      if (board[l] === "X" && board[m] === "X" && board[n] === "X") {
         return "winX";
-      } else if (board[l] === "O" && board[l] === "O" && board[l] === "O") {
+      } else if (board[l] === "O" && board[m] === "O" && board[n] === "O") {
         return "winO";
       }
     }
@@ -79,7 +86,7 @@ const ticTacToe = (xName, oName) => {
     if (player !== currentPlayer) {
       return [false, `Not your turn. It's ${currentPlayer}'s turn.`];
     }
-    //validate the right mover
+    //validate the right move
     if (!isValidMove(move)) {
       return [false, "Invalid move, try again"];
     }
